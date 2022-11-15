@@ -9,6 +9,9 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 
 configurations {
+	all {
+		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+	}
 	compileOnly {
 		extendsFrom annotationProcessor
 	}
@@ -19,12 +22,17 @@ repositories {
 }
 
 dependencies {
+	implementation 'org.springdoc:springdoc-openapi-ui:1.6.12'
+	implementation 'org.springframework.boot:spring-boot-starter-web:2.7.5'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	compileOnly 'org.projectlombok:lombok'
+	implementation 'com.vk.api:sdk:1.0.14'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
+
+
 }
 
 tasks.named('test') {
